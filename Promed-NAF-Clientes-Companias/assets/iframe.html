@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dypsa - Promed Integration NAF API </title>
+  <!--   See Using Zendesk Garden:
+    https://developer.zendesk.com/apps/docs/developer-guide/setup#using-zendesk-garden
+    https://garden.zendesk.com/css-components/bedrock/
+    https://garden.zendesk.com/css-components/utilities/typography/
+   -->
+  <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link href="main.css" rel="stylesheet"> 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="main.js" defer type="text/javascript"></script>
+  <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+</head>
+<body class="" draggable="true">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb" draggable="true" style="background-color:#7fbbd4;">
+                    <STYLE type="text/css">
+                        H5 { text-align: center; font-weight:bold;}
+                       </STYLE>
+                    <H5> PROMED - Integration NAF</H5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="inputOptions">
+        <div class="row">
+            <div class="col-md-4">
+                <form role="form-inline" class="form">
+                    <div class="form-group" id="divICode">
+                        <label>Busqueda por Nro. Compañia y Nombre de Cliente </label>
+                        <div class="contenedor">
+                            <input class="form-control" id="cia" name="cia" placeholder="Nro.de Cia." type="text"> &nbsp;
+                            <input class="form-control" id="cliente" name="cliente" placeholder="Nom.Cliente" type="text"> &nbsp; 
+                            <button id="getCliente" type="button" class="btn btn-primary btn-sm float-right">Cliente</button>
+                        </div>
+                    </div>    
+                    <p></p>
+                    <div class="contenedor">
+                        <label>Listado de compañias </label> &nbsp;
+                        <button id="getCia" type="button" class="btn btn-primary btn-sm float-right">Compañias</button>
+                    </div>
+                    <p></p>
+                    <style>
+                        .round_table{
+                            border-collapse: separate;
+                            border-spacing: 60;
+                            border: 1px solid black;
+                            border-radius: 15px;
+                            -moz-border-radius: 20px;
+                            padding: 2px;
+                            -webkit-border-radius: 5px;
+                            thead{
+                                background-color:rgb(192, 245, 192);
+                            }
+                            
+                        }
+                    </style>
+                    <table id="tabClte" class=round_table  RULES="rows" style="display: none;">
+                        <caption>Clientes</caption>
+                        <col style ="width:20%" />
+                        <col style ="width:80%" />
+                        <tbody id="tabla-clte">
+                           
+                        </tbody>
+                    </table>
+                    <table id="tabCompania" class="round_table"  border="1" width="100%" style="display: none;">
+                        <caption>Compañias</caption>
+                        <col style ="width:7%" />
+                        <col style ="width:70%" />
+                        <col style ="width:23%" />
+                        <thead>
+                            <tr>
+                                <th style="text-align: center">#</th>
+                                <th style="text-align: center">Compañia</th>
+                                <th style="text-align: center">Pais</th>
+                            </tr>
+                            <tbody id="tabla-cias">
+                           
+                            </tbody>
+                        </thead>
+                    </table>                        
+                </form>                
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="okAlert" class="alert alert-success">
+                    <strong>Ok!</strong>.- Operacion exitosa!.
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div id="errorAlert" class="alert alert-danger" draggable="true">
+                    <strong>Error!</strong>.- No se encontraron datos para esta consulta.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fade modal text-left" id="connectModal" tabindex="-1"
+        role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+        draggable="true">
+    </div>
+    <div class="fade modal" id="resulModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel" contenteditable="true">Resultados</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tabbable">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#pane1" data-toggle="tab">Tabla</a>
+                            </li>
+                            <li><a href="#pane2" data-toggle="tab">JSON</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="pane1" class="tab-pane active">
+                                <table id="resultTable" class="table">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+                    <!-- /.tabbable -->
+                </div>
+            </div>
+        </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/jquery/3.0.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

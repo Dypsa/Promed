@@ -1,0 +1,21 @@
+{
+  "name": "Data Access - Voyenbus",
+  "author": {
+    "name": "flepa",
+    "email": "pablo.fleitas@sisdypsa.com.ar",
+    "url": "http://www.sisdypsa.com.ar"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "ticket_sidebar": {
+        "url": "assets/iframe.html",
+        "flexible": true
+      }
+    }
+  },
+  "domainWhitelist": ["http://api.voyenbus.com:8090/TOLWeb/api/rest/v1.0/bo/person/search"],
+  "version": "1.0",
+  "frameworkVersion": "2.0"
+}
