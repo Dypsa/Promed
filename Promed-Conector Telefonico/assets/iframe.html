@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>Dypsa Connector v2</title> 
+  <!--   See Using Zendesk Garden:
+    https://developer.zendesk.com/apps/docs/developer-guide/setup#using-zendesk-garden
+    https://garden.zendesk.com/css-components/bedrock/
+    https://garden.zendesk.com/css-components/utilities/typography/
+   -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+  <link href="main.css" rel="stylesheet">
+  <!-- Google Analitics -->
+	<script src="ga.js"></script>
+</head>
+<body style="background-color: LightSteelBlue;">
+  <div id="app"></div>
+  <script src="bundle.js"></script>    
+  <script id="start-hdbs" type="text/x-handlebars-template">
+    <p><a id="get-tasks" href="#">Crear Ticket</a></p>
+  </script>
+    <script id="tasks-hdbs" type="text/x-handlebars-template"> 
+    <p>Ticket creado: OK</p>
+  </script>
+  <script id="error-hdbs" type="text/x-handlebars-template">
+    <p>Problema con el request: {{status}} {{statusText}}</p>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+  <script type ="text\javascript" src="main.js"></script>
+</body>
+</html>

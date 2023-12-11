@@ -1,0 +1,23 @@
+{
+  "name": "Dypsa Connector",
+  "author": {
+    "name": "Flepa",
+    "email": "pablo.fleitas@sisdypsa.com.ar",
+    "url": "https://www.sisdypsa.com.ar"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "top_bar": {
+        "url": "assets/iframe.html",
+        "size": {
+          "width": "360px",
+          "height": "510px"
+        }
+      }
+    }
+  },
+  "version": "1.0",
+  "frameworkVersion": "2.0"
+}
